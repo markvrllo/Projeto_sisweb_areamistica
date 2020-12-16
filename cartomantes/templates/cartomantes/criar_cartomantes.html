@@ -1,7 +1,12 @@
 {% extends "cartomantes/base.html" %}
 
+{% load crispy_forms_tags %}
 {% block content %}
-{% csrf_token %}
-		{{form.as_p}}
-
-		{% endblock content %}
+<div class="container col-lg-5">
+	<form class="align-middle" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form | crispy }}
+		<input type="submit" name="Enviar" class="input-group btn-success btn">
+	</form>
+</div>
+{% endblock content %}

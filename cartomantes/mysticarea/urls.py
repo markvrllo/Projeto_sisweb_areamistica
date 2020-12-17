@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.views.static import serve
 from django.conf import settings
 from mysticareaapp.views import index,cartomantes,criar_cartomantes, editar, deletar
@@ -29,6 +29,7 @@ urlpatterns = [
     path('criar_cartomantes/', criar_cartomantes, name = 'registrar_medium'),
     path('editar/<int:id>',editar, name = 'editar'),
     path('deletar/<int:id>',deletar, name = 'deletar'),
+    path('', include('usuarios.urls')),
     url(r'^img/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
 ]
 

@@ -13,6 +13,7 @@ ul.no-bullets {
   margin: 0;
   padding: 0;
 }
+
 .icones	a{
 	display: block;
 	width: 42px;
@@ -22,6 +23,11 @@ ul.no-bullets {
 .icones li{
 	display: inline-block;
 	margin-left: 0.40rem;
+}
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    float: right;
 }
 
 .card-header 

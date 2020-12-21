@@ -10,8 +10,10 @@
 				<th>Descrição</th>
 				<th>Tipo de Leitura</th>
 				<th>Conceito Cartomante</th>
+				{% if user.is_authenticated %}
 				<th>Editar</th>
 				<th>Excluir</th>
+				{% endif %}
 			</tr>
 		</thead>
 		<tbody>
@@ -22,8 +24,10 @@
 				<td>{{cartomante.desc_cartomante}}</td>
 				<td>{{cartomante.tipo_cartomante}}</td>
 				<td>{{cartomante.conceito_cartomante}}</td>
+				{% if user.is_authenticated %}
 				<td><a href="{% url 'editar' cartomante.id %}" class="btn btn-warning">Editar</a></td>
 				<td><a href="{% url 'deletar' cartomante.id %}" class="btn btn-danger">Excluir</a></td>
+				{% endif %}
 			</tr>
 			{% endfor %}
 		</tbody>

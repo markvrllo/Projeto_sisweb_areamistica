@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse
 from .forms import Cartomanteform
 from .models import Cartomante
+from django.contrib import messages
 def index(request):
 	#return HttpResponse("<h1>Aqui é o index<h1>")
 	return render(request, 'cartomantes/index.html')
@@ -37,6 +38,7 @@ def criar_cartomantes(request):
 		if form.is_valid():
 			hosp = form.save()
 			hosp.save()
+			messages.success(request, 'Médium registrado com sucesso!')
 			form = Cartomanteform()
 	return render(request,'cartomantes/criar_cartomantes.html',{'form':form})
 

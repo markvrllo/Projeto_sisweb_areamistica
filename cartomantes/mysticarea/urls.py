@@ -19,12 +19,13 @@ from django.conf.urls.static import static
 from django.conf.urls import url,include
 from django.views.static import serve
 from django.conf import settings
+from django.views.generic.base import TemplateView
 from mysticareaapp.views import index,cartomantes,criar_cartomantes, editar, deletar
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index, name = 'index'),
+    url(r'^$',TemplateView.as_view(template_name='cartomantes/index.html'), name= 'index'),
     path('cartomantes/', cartomantes, name = 'cartomantes'),
     path('criar_cartomantes/', criar_cartomantes, name = 'registrar_medium'),
     path('editar/<int:id>',editar, name = 'editar'),
